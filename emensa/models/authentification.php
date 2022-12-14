@@ -6,6 +6,7 @@ function auth($passwort, $email)
     $link = connectdb();
     $salt = "baby";
     $hash = sha1($passwort.$salt);
+    mysqli_begin_transaction($link);
     $sql = "SELECT * FROM benutzer WHERE email = '$email' AND passwort = '$hash'";
     $result = mysqli_query($link,$sql);
 
@@ -25,7 +26,7 @@ function auth($passwort, $email)
         $sql = "UPDATE benutzer SET letzterfehler = NOW() WHERE email = '$email'";
         $result = mysqli_query($link,$sql);
     }
-    var_dump($data);
+    mysqli_commit($link);
     mysqli_close($link);
     return $data[0];
 }
