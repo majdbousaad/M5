@@ -3,4 +3,4 @@
 /.gitignore
 /.idea/M5.iml
 
-./emensa/storage
+/emensa/storage/
