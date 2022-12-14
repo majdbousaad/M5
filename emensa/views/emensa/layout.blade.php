@@ -1,8 +1,3 @@
-
-@php
-session_start()
-@endphp
-
 <!DOCTYPE html>
 <html lang="de">
 <!--
