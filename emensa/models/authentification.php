@@ -13,9 +13,21 @@ function auth($passwort, $email)
 
     if ($data[0] != null) {
         $id = $data[0]['id'];
+        //update anzahlanmeldungen
         $sql = "UPDATE benutzer SET anzahlanmeldungen = anzahlanmeldungen +1 WHERE id = '$id'";
         mysqli_query($link,$sql);
+        //Update letzteanmeldung
+        $sql = "UPDATE benutzer SET letzteanmeldung = NOW() WHERE id = '$id'";
+        mysqli_query($link,$sql);
     }
+    else {
+        //update letzterfehler
+        $sql = "UPDATE benutzer SET letzterfehler = NOW() WHERE email = '$email'";
+        $result = mysqli_query($link,$sql);
+    }
+    var_dump($data);
     mysqli_close($link);
     return $data[0];
 }
+
+
