@@ -8,9 +8,7 @@ CREATE TABLE benutzer (
                           anzahlanmeldungen int not null ,
                           letzteanmeldungen datetime,
                           letzterfehler datetime
-)
+);
 
-DROP TABLE benutzer
-
-    INSERT INTO benutzer (name, email, passwort, admin, anzahlanmeldungen)
-    VALUES (admin, 'admin@emensa.example', '306d0847977076b2830e2940fcc7f1125f3bb314',true, 0)
+INSERT INTO benutzer (name, email, passwort, admin, anzahlanmeldungen)
+VALUES (admin, 'admin@emensa.example', '306d0847977076b2830e2940fcc7f1125f3bb314',true, 0)
