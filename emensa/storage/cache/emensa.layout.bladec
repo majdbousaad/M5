@@ -30,30 +30,7 @@
  </div>
  <hr>
  <div class="grid-main">
- <div class="grid-main-element">
- <img src="img/alte-mensa-bratquadrat_0.jpg" alt="Mense Blau">
- </div>
-
- <div class="grid-main-element" id="info">
- <div  class="border">
- <?php echo $this->yieldContent("info"); ?>
- </div>
-
- </div>
- <div class="grid-main-element" id="speisen">
-
- <?php echo $this->yieldContent("speisen"); ?>
- </div>
-
- <div class="grid-main-element" id="zahlen">
- <?php echo $this->yieldContent("zahlen"); ?>
- </div>
- <div class="grid-main-element" id="kontakt">
- <?php echo $this->yieldContent("kontakt"); ?>
- </div>
- <div class="grid-main-element" id="wichtig">
- <?php echo $this->yieldContent("wichtig"); ?>
- </div>
+ <?php echo $this->yieldContent("main"); ?>
 
  </div>
 

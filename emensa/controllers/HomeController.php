@@ -2,6 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/gericht.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/zahlen.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/newsletter.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../models/authentification.php');
 
 /* Datei: controllers/HomeController.php */
 class HomeController
@@ -63,7 +64,7 @@ class HomeController
 
     function home(RequestData $rd) {
         if (!isset($_SESSION['login_ok']) || !$_SESSION['login_ok']) {
-            $_SESSION['target'] = '/home_werbeseite';
+
             header('Location: /anmeldung');
             return;
         }
@@ -99,11 +100,11 @@ class HomeController
         $email = $rd->query['email'] ?? false;
         $password = $rd->query['password'] ?? false;
         // Überprüfung Eingabedaten
-        $_SESSION['login_result_message'] = null;
+
+        $_SESSION['login_result_message'] = "";
         if (auth($password,$email)) {
             $_SESSION['login_ok'] = true;
-            $target = $_SESSION['target'];
-            header('Location: /'.$target);
+            header('Location: /home');
         } else {
             $_SESSION['login_result_message'] =
                 'Name oder Passwort falsch';
