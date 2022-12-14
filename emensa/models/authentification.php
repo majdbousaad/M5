@@ -10,14 +10,12 @@ function auth($passwort, $email)
     $result = mysqli_query($link,$sql);
 
     $data = mysqli_fetch_all($result, MYSQLI_BOTH);
-    if ($data != null) {
-        $id = $data['id'];
+
+    if ($data[0] != null) {
+        $id = $data[0]['id'];
         $sql = "UPDATE benutzer SET anzahlanmeldungen = anzahlanmeldungen +1 WHERE id = '$id'";
         mysqli_query($link,$sql);
     }
-    var_dump($data);
     mysqli_close($link);
-    return $data;
+    return $data[0];
 }
-
-function anmeldung_increment()

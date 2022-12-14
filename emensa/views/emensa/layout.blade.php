@@ -1,3 +1,8 @@
+
+@php
+session_start()
+@endphp
+
 <!DOCTYPE html>
 <html lang="de">
 <!--
@@ -26,7 +31,11 @@
                 <li> <a href="#kontakt">Kontakt</a></li>
                 <li> <a href="#wichtig">Wichtig für uns</a></li>
             </ul>
+
+
         </div>
+        <p style="position: absolute; right: 200px;">Angemeldet als {{$_SESSION["cookie"]}}</p>
+
     </div>
     <hr>
     <div class="grid-main">

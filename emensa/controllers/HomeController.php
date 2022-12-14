@@ -101,9 +101,11 @@ class HomeController
         $password = $rd->query['password'] ?? false;
         // Überprüfung Eingabedaten
 
+        $data = auth($password,$email);
         $_SESSION['login_result_message'] = "";
-        if (auth($password,$email)) {
+        if ( $data != null) {
             $_SESSION['login_ok'] = true;
+            $_SESSION['cookie'] = $data["name"];
             header('Location: /home');
         } else {
             $_SESSION['login_result_message'] =
