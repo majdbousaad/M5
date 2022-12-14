@@ -22,7 +22,6 @@ return array(
     '/m4_7d_layout' => 'ExampleController@m4_7d_layout',
     '/emensa' => 'HomeController@emensa',
     '/newsletter' => 'HomeController@newsletter',
-    '/wunschgericht' => "HomeController@wunschgericht"
-
-
+    '/home' => 'HomeController@home',
+    '/anmeldung' => 'HomeController@anmeldung'
 );

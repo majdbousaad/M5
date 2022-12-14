@@ -30,30 +30,7 @@
     </div>
     <hr>
     <div class="grid-main">
-        <div class="grid-main-element">
-            <img src="img/alte-mensa-bratquadrat_0.jpg" alt="Mense Blau">
-        </div>
-
-        <div class="grid-main-element" id="info">
-            <div  class="border">
-            @yield("info")
-            </div>
-
-        </div>
-        <div class="grid-main-element" id="speisen">
-
-            @yield("speisen")
-        </div>
-
-        <div class="grid-main-element" id="zahlen">
-            @yield("zahlen")
-        </div>
-        <div class="grid-main-element" id="kontakt">
-            @yield("kontakt")
-        </div>
-        <div class="grid-main-element" id="wichtig">
-           @yield("wichtig")
-        </div>
+        @yield("main")
 
     </div>
 

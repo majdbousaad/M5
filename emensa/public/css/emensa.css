@@ -89,11 +89,12 @@ table, th, td {
 
 form{
     position: relative;
+
 }
-label{
-    position: absolute;
-    bottom: 50px;
-    color: gray;
+#kontakt_form > label{
+position: absolute;
+bottom: 50px;
+color: gray;
 }
 #submit{
     position: absolute;

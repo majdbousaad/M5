@@ -13,11 +13,9 @@ function auth($passwort, $email) : bool
     var_dump($data);
     mysqli_close($link);
     if (empty($data)) {
-        echo "false";
         return false;
     }
     else {
-        echo "true";
         return true;
     }
 }
