@@ -1,7 +1,7 @@
 <?php
 
 
-function auth($passwort, $email) : bool
+function auth($passwort, $email)
 {
     $link = connectdb();
     $salt = "baby";
@@ -10,12 +10,14 @@ function auth($passwort, $email) : bool
     $result = mysqli_query($link,$sql);
 
     $data = mysqli_fetch_all($result, MYSQLI_BOTH);
+    if ($data != null) {
+        $id = $data['id'];
+        $sql = "UPDATE benutzer SET anzahlanmeldungen = anzahlanmeldungen +1 WHERE id = '$id'";
+        mysqli_query($link,$sql);
+    }
     var_dump($data);
     mysqli_close($link);
-    if (empty($data)) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    return $data;
 }
+
+function anmeldung_increment()
