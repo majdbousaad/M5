@@ -23,6 +23,8 @@ return array(
     '/emensa' => 'HomeController@emensa',
     '/newsletter' => 'HomeController@newsletter',
     '/home' => 'HomeController@home',
-    '/anmeldung' => 'HomeController@anmeldung',
-    '/verifizierung' => 'HomeController@verifizierung'
+    '/anmeldung' => 'AuthenticationController@anmeldung',
+    '/verifizierung' => 'AuthenticationController@verifizierung',
+    '/profile' => 'HomeController@profile',
+    '/abmelden' => 'AuthenticationController@abmelden'
 );
