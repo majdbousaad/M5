@@ -13,7 +13,7 @@
             <input type="password" name="password"><br>
             <input type="submit" value="Anmeldung" name="submit">
         </form>
-        <strong style="color: red">{{$_SESSION['login_result_message']}}</strong>
+        <strong style="color: red">{{$msg}}</strong>
 
     </grid>
 
