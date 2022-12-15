@@ -94,6 +94,8 @@ class HomeController
             $benutzer = benutzer_select($_SESSION["cookie"]);
 
             return view("emensa.profile", ['benutzer' => $benutzer]);
+        } else{
+            header('Location: /home');
         }
     }
 
