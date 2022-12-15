@@ -6,6 +6,9 @@ const CONFIG_DB = "/../config/db.php";
 
 session_start();
 
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
 // DEMO
 try {
     if (!file_exists(realpath($_SERVER['DOCUMENT_ROOT'] . "/../vendor/autoload.php"))) {
@@ -90,6 +93,7 @@ class RequestData
 
 class FrontController
 {
+
 
     public static function handleRequest($url, $method = 'GET', $verbosity = 0, $configPath = CONFIG_WEBROUTES)
     {
@@ -189,6 +193,18 @@ class FrontController
 
         // a file matching has been found, now try to load the class
         try {
+
+            // adding the logger
+            // create a logger
+            $logger = new Logger('my_logger');
+
+            // create a stream handler
+            $handler = new StreamHandler('../storage/logs/log.txt', Logger::DEBUG);
+
+            // bind the handler to the logger
+            $logger->pushHandler($handler);
+
+
             require_once $controllerDirectory . $ctrlFile;
             // instantiate the controller
 
@@ -199,7 +215,7 @@ class FrontController
                 var_dump($controller, $rd);
             }
             // the controller will load model and view and return some html
-            print call_user_func_array(array($controller, $actionName), array($rd));
+            print call_user_func_array(array($controller, $actionName), array($rd, $logger));
         } catch (Exception $ex) {
             // #ERROR
             FrontController::showErrorMessage(
