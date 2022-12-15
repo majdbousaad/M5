@@ -63,7 +63,11 @@ class HomeController
         ]);
     }
 
-    function home(RequestData $rd) {
+    function home(RequestData $rd, $logger) {
+
+        // Monolog logger neuer Zugriff
+        $logger->info("neuer Zugriff auf Homepage");
+
 
         $gerichte = zufaellige_gerichte();
         $allerge_codes = codes_from_zufaellige_gerichte($gerichte);
@@ -72,9 +76,6 @@ class HomeController
         $zahlen_anmeldungen = db_zahlen_anmeldungen();
         $zahlen_besucher = db_zahlen_besucher();
 
-        if(isset($_SESSION['login_ok']) && $_SESSION['login_ok']) {
-            $_SESSION["benutzer_name"] = benutzer_select($_SESSION['cookie'])['name'];
-        }
         return view('emensa.index', [
             'rd' => $rd,
             'gerichte' => $gerichte,
