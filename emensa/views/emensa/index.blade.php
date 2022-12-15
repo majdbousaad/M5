@@ -23,6 +23,7 @@
                 <th>Name</th>
                 <th>Preis intern</th>
                 <th>Preis extern</th>
+                <th>Image</th>
             </tr>
             @forelse($gerichte as $gericht)
                 <tr>
@@ -34,6 +35,7 @@
                     </td>
                     <td>{{$gericht['preis_intern']}}</td>
                     <td>{{$gericht['preis_extern']}}</td>
+                    <td width="100px" height="100px"><img width="100%" height="100%" src="/img/gerichte/{{$gericht['bildname']}}"></td>
                 </tr>
             @empty
                 keine gerichte in der Datenbank
@@ -57,7 +59,6 @@
     </div>
     <div class="grid-main-element" id="kontakt">
         <h1>Intersse geweckt? Wir informieren Sie!</h1>
-        <a href="/wunschgericht">Dein Wunschgericht bei uns melden</a>
         <br>
         <form method="post" action="/newsletter" id="kontakt_form">
 

@@ -57,7 +57,8 @@ function zufaellige_gerichte(){
 
         $sql = "SELECT name, 
                                preis_intern, 
-                               preis_extern, 
+                               preis_extern,
+                               bildname,
                                group_concat(code) as code
                                     from gericht
                              left join gericht_hat_allergen on gericht.id = gericht_hat_allergen.gericht_id
